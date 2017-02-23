@@ -17,9 +17,20 @@ exports.updateExperience = (email, score) =>
 
 			const newExperience = experience + 5*score;
 
-				user.experience = newExperience;
+			const newLevel = user.level;
 
+			
+			if (newExperience >= 100){
+				user.experience = newExperience - 100;
+				user.level = newLevel + 1;
 				return user.save();
+			} else {
+				user.experience = newExperience;
+				user.level = newLevel;
+				return user.save();
+			}
+
+
 		})
 
 		.then(user => resolve({ status: 200, message: 'Experience Updated Sucessfully !' }))
