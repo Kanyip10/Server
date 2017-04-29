@@ -8,7 +8,7 @@ exports.sort = sort =>
 
 new Promise((resolve,reject) => {
 
-	 Tag.find({},{_id:0})
+	 Tag.find({name:sort},{name:1, description:1,sample:1,_id:0})
 
 	 
 	

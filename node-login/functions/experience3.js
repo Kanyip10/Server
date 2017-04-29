@@ -4,7 +4,7 @@ const user = require('../models/user');
 const nodemailer = require('nodemailer');
 const config = require('../config/config.json');
 
-exports.updateExperience = (email, score) => 
+exports.updateExperience3 = (email, score) => 
 
 	new Promise((resolve, reject) => {
 
@@ -13,20 +13,20 @@ exports.updateExperience = (email, score) =>
 		.then(users => {
 
 			let user = users[0];
-			const experience = user.experience;
+			const experience3 = user.experience3;
 
-			const newExperience = experience + score;
+			const newExperience3 = experience3 + score;
 
 			const newLevel = user.level;
 
 			
-			if (newExperience >= 100){
-				//user.experience = newExperience - 100;
+			if (newExperience3 >= 100){
+				//user.experience3 = newExperience3 - 100;
 				//user.level = newLevel + 1;
-				user.experience = 100;
+				user.experience3 = 100;
 				return user.save();
 			} else {
-				user.experience = newExperience;
+				user.experience3 = newExperience3;
 				user.level = newLevel;
 				return user.save();
 			}

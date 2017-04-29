@@ -22,10 +22,10 @@ const tagSchema = mongoose.Schema(
 		},
 	},
 	{
-		collection: 'tags'
+		collection: 'tag'
 	}
 );
 mongoose.Promise = global.Promise;
 //mongoose.connect('mongodb://admin:1234@ds145868.mlab.com:45868/test2');
 
-module.exports = mongoose.model('tags', tagSchema);        
+module.exports = mongoose.model('tag', tagSchema);        

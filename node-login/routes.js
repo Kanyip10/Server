@@ -10,6 +10,10 @@ const password = require('./functions/password');
 const sorting = require('./functions/sorting');
 const config = require('./config/config.json');
 const experience = require('./functions/experience');
+const experience2 = require('./functions/experience2');
+const experience3 = require('./functions/experience3');
+const experience4 = require('./functions/experience4');
+const experience5 = require('./functions/experience5');
 
 module.exports = router => {
 
@@ -119,6 +123,110 @@ module.exports = router => {
 			} else {
 
 				experience.updateExperience(email, newExp)
+
+				.then(result => res.status(result.status).json({ message: result.message }))
+
+				.catch(err => res.status(err.status).json({ message: err.message }));
+
+			}
+		} else {
+
+			res.status(401).json({ message: 'Invalid Token !' });
+		}
+	});
+
+	router.put('/users/:id/experience2', (req,res) => {
+
+		if (checkToken(req)) {
+
+			const email = req.params.id;
+			const newExp = req.body.newExp;
+
+			if (!newExp) {
+
+				res.status(400).json({ message: 'Invalid Request 123!' });
+
+			} else {
+
+				experience2.updateExperience2(email, newExp)
+
+				.then(result => res.status(result.status).json({ message: result.message }))
+
+				.catch(err => res.status(err.status).json({ message: err.message }));
+
+			}
+		} else {
+
+			res.status(401).json({ message: 'Invalid Token !' });
+		}
+	});
+
+	router.put('/users/:id/experience3', (req,res) => {
+
+		if (checkToken(req)) {
+
+			const email = req.params.id;
+			const newExp = req.body.newExp;
+
+			if (!newExp) {
+
+				res.status(400).json({ message: 'Invalid Request 123!' });
+
+			} else {
+
+				experience3.updateExperience3(email, newExp)
+
+				.then(result => res.status(result.status).json({ message: result.message }))
+
+				.catch(err => res.status(err.status).json({ message: err.message }));
+
+			}
+		} else {
+
+			res.status(401).json({ message: 'Invalid Token !' });
+		}
+	});
+
+	router.put('/users/:id/experience4', (req,res) => {
+
+		if (checkToken(req)) {
+
+			const email = req.params.id;
+			const newExp = req.body.newExp;
+
+			if (!newExp) {
+
+				res.status(400).json({ message: 'Invalid Request 123!' });
+
+			} else {
+
+				experience4.updateExperience4(email, newExp)
+
+				.then(result => res.status(result.status).json({ message: result.message }))
+
+				.catch(err => res.status(err.status).json({ message: err.message }));
+
+			}
+		} else {
+
+			res.status(401).json({ message: 'Invalid Token !' });
+		}
+	});
+
+	router.put('/users/:id/experience5', (req,res) => {
+
+		if (checkToken(req)) {
+
+			const email = req.params.id;
+			const newExp = req.body.newExp;
+
+			if (!newExp) {
+
+				res.status(400).json({ message: 'Invalid Request 123!' });
+
+			} else {
+
+				experience5.updateExperience5(email, newExp)
 
 				.then(result => res.status(result.status).json({ message: result.message }))
 
